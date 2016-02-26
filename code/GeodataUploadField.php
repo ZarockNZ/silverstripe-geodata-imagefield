@@ -67,9 +67,9 @@ class GeoDataUploadField extends UploadField
  	 * @param String $lngFieldName Name of the Longitude property in the dataobject to save the lng value in.
  	 * @param String $zoomFieldName Name of the Zoom property in the dataobject to save the zoom value in.
  	 */
-    public function __construct($name, $title = null, $options = array(), $latFieldName='Latitude',
+	public function __construct($name, $title = null, $options = array(), $latFieldName='Latitude',
 		$lngFieldName='Longitude', $zoomFieldName='Zoom')
-    {
+	{
 		// Call parent constructor to do normal upload field things.
 		parent::__construct($name, $title);
 
@@ -83,7 +83,7 @@ class GeoDataUploadField extends UploadField
 
 		// Call function to create hidden long, lat, zoom level fields on the form.
 		$this->setupChildren();
-    }
+	}
 
 	/**
  	 * Merge options preserving the first level of array keys
