@@ -104,6 +104,12 @@
 			}
 		});
 
+		// Listen for a geofeild map update event and when get it with the lat and lng
+		// move the marker on the map and pan to it.
+		$(document).on("geofieldMapUpdate", {foo:"bar"}, function(e, lat, lng) {
+			marker.setPosition(new google.maps.LatLng(lat, lng));
+    		map.panTo(new google.maps.LatLng(lat, lng));
+		});
 	}
 
 	$.fn.gmapfield = function() {

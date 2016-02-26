@@ -969,10 +969,8 @@ function getGeoInfo(exifObject) {
             lng *= -1;
         }
 
-        //+++ Need to call the update map function to move the pointer somehow, or perhaps trigger this
-        //+++ by updating something on the page - can the fields be updated directly by JS and that change
-        //++ triggers the update on the map?
-        alert("Lat, Long: " + lat + ',' + lng);
+        // Trigger the geofield update event so we can move the pointer on the map.
+        $( document ).trigger( "geofieldMapUpdate", [ lat, lng ] );
     }
 }
 
