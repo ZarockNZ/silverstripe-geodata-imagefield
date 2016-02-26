@@ -23,50 +23,50 @@
 
 class GeoDataUploadField extends UploadField
 {
-    /**
-	 * @var FormField
-	 */
+	/**
+ 	 * @var FormField
+ 	 */
 	protected $latField;
 
 	/**
-	 * @var String
-	 */
+ 	 * @var String
+ 	 */
 	protected $latFieldName;
 
 	/**
-	 * @var FormField
-	 */
+ 	 * @var FormField
+ 	 */
 	protected $lngField;
 
 	/**
-	 * @var String
-	 */
+ 	 * @var String
+ 	 */
 	protected $lngFieldName;
 
 	/**
-	 * @var FormField
-	 */
+ 	 * @var FormField
+ 	 */
 	protected $zoomField;
 
 	/**
-	 * @var String
-	 */
+ 	 * @var String
+ 	 */
 	protected $zoomFieldName;
 
-    /**
-	 * @var array
-	 */
+	/**
+ 	 * @var array
+ 	 */
 	protected $options = array();
 
 	/**
 	 * Constructor
-	 * @param String $name    The name of the upload field.
-	 * @param String $title   Title of the field on the form.
-	 * @param array  $options User defined options for the google map.
-	 * @param String $latFieldName Name of the Latitude property in the dataobject to save the lat value in.
-	 * @param String $lngFieldName Name of the Longitude property in the dataobject to save the lng value in.
-	 * @param String $zoomFieldName Name of the Zoom property in the dataobject to save the zoom value in.
-	 */
+ 	 * @param String $name    The name of the upload field.
+ 	 * @param String $title   Title of the field on the form.
+ 	 * @param array  $options User defined options for the google map.
+ 	 * @param String $latFieldName Name of the Latitude property in the dataobject to save the lat value in.
+ 	 * @param String $lngFieldName Name of the Longitude property in the dataobject to save the lng value in.
+ 	 * @param String $zoomFieldName Name of the Zoom property in the dataobject to save the zoom value in.
+ 	 */
     public function __construct($name, $title = null, $options = array(), $latFieldName='Latitude',
 		$lngFieldName='Longitude', $zoomFieldName='Zoom')
     {
@@ -78,19 +78,19 @@ class GeoDataUploadField extends UploadField
 		$this->lngFieldName = $lngFieldName;
 		$this->zoomFieldName = $zoomFieldName;
 
-        // Set up the google map options passing in user supplied options.
+		// Set up the google map options passing in user supplied options.
 		$this->setupOptions($options);
 
-        // Call function to create hidden long, lat, zoom level fields on the form.
-        $this->setupChildren();
+		// Call function to create hidden long, lat, zoom level fields on the form.
+		$this->setupChildren();
     }
 
-    /**
-	 * Merge options preserving the first level of array keys
-	 * @param array $options
-	 */
+	/**
+ 	 * Merge options preserving the first level of array keys
+ 	 * @param array $options
+ 	 */
 	public function setupOptions(array $options)
-    {
+	{
 		// Get the default google map options.
 		$this->options = static::config()->default_options;
 
@@ -107,23 +107,23 @@ class GeoDataUploadField extends UploadField
 		}
 	}
 
-    /**
-	 * Set up child hidden fields, and optionally the search box.
-	 * @return FieldList the children
+	/**
+ 	 * Set up child hidden fields, and optionally the search box.
+ 	 * @return FieldList the children
 	 */
 	public function setupChildren()
-    {
+	{
 		// Create the latitude/longitude hidden fields.
 		$this->latField = HiddenField::create(
 			$this->name.'[Latitude]',
 			'Lat',
-            $this->getDefaultValue('Latitude')
+			$this->getDefaultValue('Latitude')
 		)->addExtraClass('googlemapfield-latfield');
 
 		$this->lngField = HiddenField::create(
 			$this->name.'[Longitude]',
 			'Lng',
-            $this->getDefaultValue('Longitude')
+			$this->getDefaultValue('Longitude')
 		)->addExtraClass('googlemapfield-lngfield');
 
 		$this->zoomField = HiddenField::create(
@@ -142,8 +142,8 @@ class GeoDataUploadField extends UploadField
 		if ($this->options['show_search_box']) {
 			$this->children->push(
 				TextField::create('Search')
-				->addExtraClass('googlemapfield-searchfield')
-				->setAttribute('placeholder', 'Search for a location')
+					->addExtraClass('googlemapfield-searchfield')
+					->setAttribute('placeholder', 'Search for a location')
 			);
 		}
 
@@ -151,36 +151,37 @@ class GeoDataUploadField extends UploadField
 	}
 
 	/**
-	 * Returns the default value for the field.
-	 * @param  String $name The name of the field.
-	 * @return String The value of the field.
-	 */
-    public function getDefaultValue($name)
-    {
+ 	 * Returns the default value for the field.
+ 	 * @param  String $name The name of the field.
+ 	 * @return String The value of the field.
+ 	 */
+	public function getDefaultValue($name)
+	{
 		$fieldValues = $this->getOption('default_field_values');
 		return isset($fieldValues[$name]) ? $fieldValues[$name] : null;
 	}
 
-	/**
-	 * Sets the value of the field and also of the child fields.
-	 * @param array $value Submitted form data.
-	 * @param DataObject $record The dataobject containing the record data.
-	 * @return UploadField self reference.
-	 */
+	 /**
+ 	 * Sets the value of the field and also of the child fields.
+ 	 * @param array $value Submitted form data.
+ 	 * @param DataObject $record The dataobject containing the record data.
+ 	 * @return UploadField self reference.
+ 	 */
 	public function setValue($value, $record=null)
 	{
 		// Check if there is data for this object in the record, there is after the
 		// form is submitted but normally not when the page is displayed for the first time.
 		if (isset($record[$this->name])) {
-
 			// Set the values for the lat and long fields to the values from the records
 			// we need to do this otherwise the come saving time they will only have the default values.
 			$this->latField->setValue(
 				$record[$this->name]['Latitude']
 			);
+
 			$this->lngField->setValue(
 				$record[$this->name]['Longitude']
 			);
+
 			$this->zoomField->setValue(
 				$record[$this->name]['Zoom']
 			);
@@ -190,18 +191,18 @@ class GeoDataUploadField extends UploadField
 		return parent::setValue($value, $record);
 	}
 
-    /**
-     * Includes needed things in the front end.
-     */
+	/**
+	 * Includes needed things in the front end.
+	 */
 	protected function requireDependencies()
-    {
+	{
 		// Set up some map params, including initialising the map.
 		$gmapsParams = array(
 			'callback' => 'googlemapfieldInit',
 		);
 
 		// Add google maps API key if there is one.
-        if ($key = $this->getOption('api_key')) {
+		if ($key = $this->getOption('api_key')) {
 			$gmapsParams['key'] = $key;
 		}
 
@@ -210,19 +211,19 @@ class GeoDataUploadField extends UploadField
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/GoogleMapField.js');
 		Requirements::javascript('//maps.googleapis.com/maps/api/js?' . http_build_query($gmapsParams));
 
-        // Require the javascript to read the geotag information from the selected file.
-        //++ @TODO sort inclusion of JS in the site as there already is some older stuff.
+		// Require the javascript to read the geotag information from the selected file.
+		//++ @TODO sort inclusion of JS in the site as there already is some older stuff.
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery-1.7.1.js');
 
 		//++ @TODO sort why the functions supposedly added in this file can't be called.
 		//++ Perhaps move this to our own file below since rally only need one (might sort JS issues)
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery.exif.js');
 
-        // Require the JS to listen for the change event on the file upload.
-        Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/GeodataUploadField.js');
+		// Require the JS to listen for the change event on the file upload.
+		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/GeodataUploadField.js');
 	}
 
-    /**
+	/**
 	 * Get the merged option that was set on __construct
 	 * @param string $name The name of the option
 	 * @return mixed
@@ -234,13 +235,13 @@ class GeoDataUploadField extends UploadField
 			if (isset($this->options[$name])) return $this->options[$name];
 		} else {
 			$names = explode('.', $name);
-
 			$var = $this->options;
 
 			foreach($names as $n) {
 				if(!isset($var[$n])) {
 					return null;
 				}
+
 				$var = $var[$n];
 			}
 
