@@ -276,12 +276,12 @@ class GeoDataUploadField extends UploadField
 		return $this;
 	}
 
-    /**
-     * Called by SS to output the field.
-     * @param array $properties [description]
-     */
+	/**
+	 * Called by SS to output the field.
+	 * @param array $properties [description]
+	 */
 	public function Field($properties = array())
-    {
+	{
 		// Set up the JS options, placing the map pin in the default location and with the default zoom level.
 		$jsOptions = array(
 			'coords' => array(
@@ -305,7 +305,7 @@ class GeoDataUploadField extends UploadField
 	 * @return FieldList The Latitude/Longitude/Zoom fields
 	 */
 	public function getChildFields()
-    {
+	{
 		return $this->children;
 	}
 
