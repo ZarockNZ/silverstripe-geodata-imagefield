@@ -196,6 +196,11 @@ class GeoDataUploadField extends UploadField
 	 */
 	protected function requireDependencies()
 	{
+		// Need this first before any of the map stuff done.
+		//++ @TODO sort out why jquery_1.3 was included on the generic page as that stops
+		//++ getting the geomap stuff from working, should upgrade the jquery in the side if possible.
+		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery-1.7.1.js');
+
 		// Set up some map params, including initialising the map.
 		$gmapsParams = array(
 			'callback' => 'googlemapfieldInit',
@@ -211,12 +216,7 @@ class GeoDataUploadField extends UploadField
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/GoogleMapField.js');
 		Requirements::javascript('//maps.googleapis.com/maps/api/js?' . http_build_query($gmapsParams));
 
-		// Require the javascript to read the geotag information from the selected file.
-		//++ @TODO sort inclusion of JS in the site as there already is some older stuff.
-		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery-1.7.1.js');
-
-		//++ @TODO sort why the functions supposedly added in this file can't be called.
-		//++ Perhaps move this to our own file below since rally only need one (might sort JS issues)
+		// Include file to get the geo data from a file when selected.
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery.exif.js');
 
 		// Require the JS to listen for the change event on the file upload.

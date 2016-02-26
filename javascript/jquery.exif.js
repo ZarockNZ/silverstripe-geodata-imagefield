@@ -928,6 +928,54 @@ $.fileExif = function(file, callback) {
     reader.readAsBinaryString(getFilePart(file));
 };
 
+// -----------------------------------------------------------------------------
+// Create a onChange handler for the image geodataupload fields to we can get the
+// file information etc when a file is selected.
+$(".geodataupload").on('change', function(e){
+    $(this).fileExif(getGeoInfo);
+});
+
+// Get the geo data from the object and convert it in to 3 numbers, the lat, lng, and the zoom.
+function getGeoInfo(exifObject) {
+    var latParts = exifObject['GPSLatitude'];
+    var lngParts = exifObject['GPSLongitude'];
+
+    var latRef = exifObject['GPSLatitudeRef'];
+    var lngRef = exifObject['GPSLongitudeRef'];
+
+    //++ Test if actually have values.
+    if ((latParts) && (lngParts) && (latRef) && (lngRef)) {
+
+        var latDegrees = latParts[0];
+        var latMinutes = latParts[1];
+        var latSeconds = latParts[2];
+
+        var lngDegrees = lngParts[0];
+        var lngMinutes = lngParts[1];
+        var lngSeconds = lngParts[2];
+
+        //++ Might need to cast as float?
+        var lat = latDegrees + (((latMinutes*60)+(latSeconds))/3600);
+        var lng = lngDegrees + (((lngMinutes*60)+(lngSeconds))/3600);
+
+        // If the latitude is South, make it negative.
+        //++ Upper or lowercase the value from the geotag to be sure no issue with matching.
+        if (latRef  == 'S') {
+            lat *= -1;
+        }
+
+        // If the longitude is west, make it negative
+        if (lngRef == 'W') {
+            lng *= -1;
+        }
+
+        //+++ Need to call the update map function to move the pointer somehow, or perhaps trigger this
+        //+++ by updating something on the page - can the fields be updated directly by JS and that change
+        //++ triggers the update on the map?
+        alert("Lat, Long: " + lat + ',' + lng);
+    }
+}
+
 })();
 
 })(jQuery);
