@@ -3,7 +3,7 @@
  * Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
  * Licensed under the MPL License [http://www.nihilogic.dk/licenses/mpl-license.txt]
  *
- * Altered by Douglas McKechie 2016-02.
+ * Altered by DouG 2016-02.
  */
 
 (function($) {

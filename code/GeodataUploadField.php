@@ -6,7 +6,7 @@
  *
  * Automatically displays a map under the upload field using the Google Maps API and includes hidden
  * fields on the form to record the latitude, longitute, and zoom level which are then saved to the
- * dataobject record after the form is submitted.
+ * dataobject after the form is submitted.
  *
  * If the file has geolocation tags in it (such as jpeg) the marker on the map will move automatically
  * to that location. The user can move the map marker / pin manually to specify the location of the media.
@@ -15,10 +15,7 @@
  * @author <@ZarockNZ>
  *
  * Note: Heavily based on the silverstripe-googlemapfield by @willmorgan, but altered as needed to do what I want.
- * Note: Also based on / includes Javascript EXIF Reader to get the geotags from a file at time of selection by
- * Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk
  *
- * @TODO //++ Check what need to include here or elsewhere to satisfy the licence requirements.
  */
 
 class GeoDataUploadField extends UploadField
@@ -196,9 +193,7 @@ class GeoDataUploadField extends UploadField
 	 */
 	protected function requireDependencies()
 	{
-		// Need this first before any of the map stuff done.
-		//++ @TODO sort out why jquery_1.3 was included on the generic page as that stops
-		//++ getting the geomap stuff from working, should upgrade the jquery in the side if possible.
+		// Ensure that query is included. It must be equal to or greater than this version.
 		Requirements::javascript(GEODATA_UPLOADFIELD_BASE .'/javascript/jquery-1.7.1.js');
 
 		// Set up some map params, including initialising the map.
