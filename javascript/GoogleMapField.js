@@ -36,6 +36,10 @@
 			zoomField = field.find('.googlemapfield-zoomfield'),
 			search = field.find('.googlemapfield-searchfield');
 
+			// Ensure the zoom field is populated on start up otherwise
+			// saves empty value if user does not adjust the zoom.
+			zoomField.val(settings.map.zoom);
+
 		// Update the hidden fields and mark as changed
 		function updateField(latLng, init) {
 			var latCoord = latLng.lat(),
