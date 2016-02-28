@@ -7,6 +7,8 @@ Latitude, Longitude, and Zoom fields are saved in to the same DataObject as the 
 
 If the file has geolocation tags in it once the file is chosen the marker on the map will move to that location automatically (the user can adjust manually if desired).
 
+Note this only works on front-end forms at this time.
+
 ## Requirements
     * Silverstripe 3.1.x+
     * JQuery-1.7.1+
@@ -84,3 +86,6 @@ I would like to thank the creators and contributors of those repositories / libr
 
 ## Maintainer
 ZarockNZ - https://github.com/ZarockNZ
+
+## TODO
+    * Try to get this working CMS side.
