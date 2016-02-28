@@ -2,6 +2,8 @@
  * Javascript EXIF Reader - jQuery plugin 0.1.3
  * Copyright (c) 2008 Jacob Seidelin, cupboy@gmail.com, http://blog.nihilogic.dk/
  * Licensed under the MPL License [http://www.nihilogic.dk/licenses/mpl-license.txt]
+ *
+ * Altered by Douglas McKechie 2016-02.
  */
 
 (function($) {
@@ -943,9 +945,7 @@ function getGeoInfo(exifObject) {
     var latRef = exifObject['GPSLatitudeRef'];
     var lngRef = exifObject['GPSLongitudeRef'];
 
-    //++ Test if actually have values.
     if ((latParts) && (lngParts) && (latRef) && (lngRef)) {
-
         var latDegrees = latParts[0];
         var latMinutes = latParts[1];
         var latSeconds = latParts[2];
@@ -954,18 +954,16 @@ function getGeoInfo(exifObject) {
         var lngMinutes = lngParts[1];
         var lngSeconds = lngParts[2];
 
-        //++ Might need to cast as float?
         var lat = latDegrees + (((latMinutes*60)+(latSeconds))/3600);
         var lng = lngDegrees + (((lngMinutes*60)+(lngSeconds))/3600);
 
         // If the latitude is South, make it negative.
-        //++ Upper or lowercase the value from the geotag to be sure no issue with matching.
-        if (latRef  == 'S') {
+        if (latRef.toUpperCase()  == 'S') {
             lat *= -1;
         }
 
         // If the longitude is west, make it negative
-        if (lngRef == 'W') {
+        if (lngRef.toUpperCase() == 'W') {
             lng *= -1;
         }
 

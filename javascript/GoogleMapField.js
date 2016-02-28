@@ -1,6 +1,8 @@
 /**
  * GoogleMapField.js
  * @author <@willmorgan>
+ *
+ * Altered by <@ZarockNZ> 2016-02
  */
 (function($) {
 
@@ -104,11 +106,16 @@
 			}
 		});
 
-		// Listen for a geofeild map update event and when get it with the lat and lng
+		// ---------------------------------------------------------------------
+		// Listen for a geofield map update event and when get it with the lat and lng
 		// move the marker on the map and pan to it.
 		$(document).on("geofieldMapUpdate", {foo:"bar"}, function(e, lat, lng) {
 			marker.setPosition(new google.maps.LatLng(lat, lng));
-    		map.panTo(new google.maps.LatLng(lat, lng));
+			map.panTo(new google.maps.LatLng(lat, lng));
+
+			// Set the zoom level to 10 so zoom in quite a bit more so the user can see the
+			// details of the terrain and check the map marker is in the correct place.
+			map.setZoom(10);
 		});
 	}
 
