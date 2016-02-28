@@ -1,0 +1,16 @@
+---
+Name: geodata-uploadfield
+---
+GeoDataUploadField:
+  default_options:
+    api_key: null
+    show_search_box: false
+    field_names:
+      Latitude: 'Latitude'
+      Longitude: 'Longitude'
+      Zoom: 'Zoom'
+    map:
+      zoom: 5
+    default_field_values:
+      Latitude: -40.900557
+      Longitude: 174.88597100000004
