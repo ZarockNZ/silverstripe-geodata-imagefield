@@ -2,7 +2,7 @@
  * GoogleMapField.js
  * @author <@willmorgan>
  *
- * Altered by <@ZarockNZ> 2016-02
+ * Altered by <@zarocknz> 2016-02
  */
 (function($) {
 

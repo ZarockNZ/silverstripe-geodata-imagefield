@@ -12,7 +12,7 @@
  * to that location. The user can move the map marker / pin manually to specify the location of the media.
  *
  * You can also search for locations using the search box (if enabled), which uses the Google Maps Geocoding API.
- * @author <@ZarockNZ>
+ * @author <@zarocknz>
  *
  * Note: Heavily based on the silverstripe-googlemapfield by @willmorgan, but altered as needed to do what I want.
  *
