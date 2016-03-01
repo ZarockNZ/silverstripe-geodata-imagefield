@@ -1,9 +1,9 @@
 {
-    "name": "ZarockNZ/silverstripe-geodata-uploadfield",
+    "name": "zarocknz/silverstripe-geodata-uploadfield",
     "type": "silverstripe-module",
     "description": "Geolocation file upload field (for photos etc)",
     "keywords": ["maps","google", "googlemapfield", "silverstripe", "map", "geolocation","fileupload","image","photo"],
-    "homepage": "https://github.com/ZarockNZ/silverstripe-geodata-uploadfield",
+    "homepage": "https://github.com/zarocknz/silverstripe-geodata-uploadfield",
     "license": "BSD",
     "authors": [
         {

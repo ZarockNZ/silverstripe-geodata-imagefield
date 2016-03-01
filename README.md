@@ -85,7 +85,7 @@ All I have really done is bought these two together and modified them to work in
 I would like to thank the creators and contributors of those repositories / libraries.
 
 ## Maintainer
-ZarockNZ - https://github.com/ZarockNZ
+zarocknz - https://github.com/zarocknz
 
 ## TODO
     * Try to get this working CMS side.
