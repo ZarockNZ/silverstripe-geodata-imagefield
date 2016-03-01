@@ -26,7 +26,7 @@ class GeoDataUploadField extends UploadField
 	protected $latField;
 
 	/**
- 	 * @var String
+ 	 * @var string
  	 */
 	protected $latFieldName;
 
@@ -36,7 +36,7 @@ class GeoDataUploadField extends UploadField
 	protected $lngField;
 
 	/**
- 	 * @var String
+ 	 * @var string
  	 */
 	protected $lngFieldName;
 
@@ -46,7 +46,7 @@ class GeoDataUploadField extends UploadField
 	protected $zoomField;
 
 	/**
- 	 * @var String
+ 	 * @var string
  	 */
 	protected $zoomFieldName;
 
@@ -57,12 +57,12 @@ class GeoDataUploadField extends UploadField
 
 	/**
 	 * Constructor
- 	 * @param String $name    The name of the upload field.
- 	 * @param String $title   Title of the field on the form.
+ 	 * @param string $name    The name of the upload field.
+ 	 * @param string $title   Title of the field on the form.
  	 * @param array  $options User defined options for the google map.
- 	 * @param String $latFieldName Name of the Latitude property in the dataobject to save the lat value in.
- 	 * @param String $lngFieldName Name of the Longitude property in the dataobject to save the lng value in.
- 	 * @param String $zoomFieldName Name of the Zoom property in the dataobject to save the zoom value in.
+ 	 * @param string $latFieldName Name of the Latitude property in the dataobject to save the lat value in.
+ 	 * @param string $lngFieldName Name of the Longitude property in the dataobject to save the lng value in.
+ 	 * @param string $zoomFieldName Name of the Zoom property in the dataobject to save the zoom value in.
  	 */
 	public function __construct($name, $title = null, $options = array(), $latFieldName='Latitude',
 		$lngFieldName='Longitude', $zoomFieldName='Zoom')
@@ -149,8 +149,8 @@ class GeoDataUploadField extends UploadField
 
 	/**
  	 * Returns the default value for the field.
- 	 * @param  String $name The name of the field.
- 	 * @return String The value of the field.
+ 	 * @param string $name The name of the field.
+ 	 * @return string The value of the field.
  	 */
 	public function getDefaultValue($name)
 	{
@@ -306,7 +306,7 @@ class GeoDataUploadField extends UploadField
 
 	/**
 	 * Called before the dataobject record is saved.
-	 * @param  DataObjectInterface $record The record.
+	 * @param DataObjectInterface $record The record.
 	 * @return [type]                      [description]
 	 */
 	public function saveInto(DataObjectInterface $record)
