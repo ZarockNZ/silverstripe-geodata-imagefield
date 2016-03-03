@@ -22,12 +22,16 @@
         },
         {
             "name": "Will Morgan",
-            "homepage": "http://twitter.com/willmorgan",
+            "homepage": "https://twitter.com/willmorgan",
             "role": "Developer"
         }
     ],
     "require": {
         "php": ">=5.3.0",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "silverstripe/framework": "^3.1"
+    },
+    "support": {
+        "issues": "https://github.com/ZarockNZ/silverstripe-geodata-uploadfield/issues"
     }
 }
