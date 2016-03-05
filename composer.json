@@ -32,6 +32,6 @@
         "silverstripe/framework": "^3.1"
     },
     "support": {
-        "issues": "https://github.com/ZarockNZ/silverstripe-geodata-uploadfield/issues"
+        "issues": "https://github.com/zarocknz/silverstripe-geodata-uploadfield/issues"
     }
 }
