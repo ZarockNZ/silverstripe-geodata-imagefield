@@ -1,6 +1,12 @@
-# silverstripe-geodata-uploadfield
+# SilverStripe Geodata Uploadfield
 
-## Description
+[![Build Status](https://api.travis-ci.org/zarocknz/silverstripe-geodata-uploadfield.svg?branch=master)](https://travis-ci.org/zarocknz/silverstripe-geodata-uploadfield)
+[![Latest Stable Version](https://poser.pugx.org/zarocknz/silverstripe-geodata-uploadfield/version.svg)](https://github.com/zarocknz/silverstripe-geodata-uploadfield/releases)
+[![Latest Unstable Version](https://poser.pugx.org/zarocknz/silverstripe-geodata-uploadfield/v/unstable.svg)](https://packagist.org/packages/zarocknz/silverstripe-geodata-uploadfield)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/zarocknz/silverstripe-geodata-uploadfield.svg)](https://scrutinizer-ci.com/g/zarocknz/silverstripe-geodata-uploadfield?branch=master)
+[![Total Downloads](https://poser.pugx.org/zarocknz/silverstripe-geodata-uploadfield/downloads.svg)](https://packagist.org/packages/zarocknz/silverstripe-geodata-uploadfield)
+[![License](https://poser.pugx.org/zarocknz/silverstripe-geodata-uploadfield/license.svg)](https://github.com/zarocknz/silverstripe-geodata-uploadfield/blob/master/license.md)
+
 File upload field for forms with a Google Map to allow the user to set the location of the uploaded media, for example photos.
 
 Latitude, Longitude, and Zoom fields are saved in to the same DataObject as the Image the upload field is for when the form is submitted.
