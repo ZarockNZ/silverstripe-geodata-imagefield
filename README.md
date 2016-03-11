@@ -39,18 +39,18 @@ Then create your form using the GeodataUploadField instead of a normal Silverstr
 ```php
 public function getFrontEndFields($params = null)
 {
-    $fields = parent::getFrontEndFields($params);
+   $fields = parent::getFrontEndFields($params);
 
-    // Create GeoData Upload field.
-    $upload = GeoDataUploadField::create('Image', 'Image');
+   // Create GeoData Upload field.
+   $upload = GeoDataUploadField::create('Image', 'Image');
 
-    // Set options to prevent selection of existing or access to the filesystem as per Silverstripe docs.
-    $upload->setCanAttachExisting(false);
-    $upload->setCanPreviewFolder(false);
+   // Set options to prevent selection of existing or access to the filesystem as per Silverstripe docs.
+   $upload->setCanAttachExisting(false);
+   $upload->setCanPreviewFolder(false);
 
-    $fields->replaceField('Image', $upload);
+   $fields->replaceField('Image', $upload);
 
-    return $fields;
+   return $fields;
 }
 ```
 
@@ -64,19 +64,18 @@ If you have named the Latitude, Longitude, or Zoom fields differently in your Da
 The following example shows creating a GeoDataUploadField passing some options and the differently named lat and lng fields...
 
 ```php
-    $options =
-    $upload = GeoDataUploadField::create(
-        'Image',                // Name.
-        'Select an Image',      // Title
-        array(                  // Options.
-            'map' => array(
-                'zoom' => 10
-            )
-        ),
-        'theLatField',          // Latitude field name.
-        'theLngField',          // Longitude field name.
-        'theZomField'           // Zoom field name.
-    );
+$upload = GeoDataUploadField::create(
+   'Image',                // Name.
+   'Select an Image',      // Title
+   array(                  // Options.
+      'map' => array(
+         'zoom' => 10
+      )
+   ),
+   'theLatField',          // Latitude field name.
+   'theLngField',          // Longitude field name.
+   'theZomField'           // Zoom field name.
+);
 ```
 
 Remember, as long as you have named the fields on the dataobject Latitude, Longitude, and Zoom you don't need to pass their names in to the constructor.
