@@ -1,4 +1,4 @@
-# SilverStripe Geodata Uploadfield
+# [SilverStripe Geodata Uploadfield](https://github.com/zarocknz/silverstripe-geodata-uploadfield)
 
 [![Build Status](https://api.travis-ci.org/zarocknz/silverstripe-geodata-uploadfield.svg?branch=master)](https://travis-ci.org/zarocknz/silverstripe-geodata-uploadfield)
 [![Latest Stable Version](https://poser.pugx.org/zarocknz/silverstripe-geodata-uploadfield/version.svg)](https://github.com/zarocknz/silverstripe-geodata-uploadfield/releases)
